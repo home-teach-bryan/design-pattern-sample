@@ -1,6 +1,7 @@
 ﻿using System.Threading.Channels;
 using DesignPatternSample.AbstractFactory.Product;
 using DesignPatternSample.AbstractFactory.ProductFactory;
+using DesignPatternSample.Builder;
 using DesignPatternSample.Factory.PaymentFactory;
 
 namespace DesignPatternSample;
@@ -41,6 +42,16 @@ class Program
         var samsungMobilePhone = samsungFactory.GenerateMobilePhone();
         samsungElectronic.DisplayName();
         samsungMobilePhone.DisplayName();
+
+        #endregion
+
+        #region 建造者模式
+
+        var manualOrderDirector = new OrderDirector(new ManualOrderBuilder());
+        var manualOrder = manualOrderDirector.Build();
+        var ecOrderDirector = new OrderDirector(new ECommerceOrderBuilder());
+        var ecOrder = ecOrderDirector.Build();
+        
 
         #endregion
         
