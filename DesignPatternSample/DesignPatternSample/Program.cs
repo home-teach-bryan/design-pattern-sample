@@ -1,4 +1,6 @@
 ﻿using System.Threading.Channels;
+using DesignPatternSample.AbstractFactory.Product;
+using DesignPatternSample.AbstractFactory.ProductFactory;
 using DesignPatternSample.Factory.PaymentFactory;
 
 namespace DesignPatternSample;
@@ -23,6 +25,22 @@ class Program
 
         var creditCardPayment = new CreditCardPaymentFactory();
         creditCardPayment.MakePayment(40.00m);
+
+        #endregion
+
+        #region 抽象工廠(Abstract Factory Pattern)
+
+        var applyFactory = new AppleFactory();
+        var appleElectronic = applyFactory.GenerateElectronic();
+        var appleMobilePhone = applyFactory.GenerateMobilePhone();
+        appleElectronic.DisplayName();
+        appleMobilePhone.DisplayName();
+
+        var samsungFactory = new SamsungFactory();
+        var samsungElectronic = samsungFactory.GenerateElectronic();
+        var samsungMobilePhone = samsungFactory.GenerateMobilePhone();
+        samsungElectronic.DisplayName();
+        samsungMobilePhone.DisplayName();
 
         #endregion
         
