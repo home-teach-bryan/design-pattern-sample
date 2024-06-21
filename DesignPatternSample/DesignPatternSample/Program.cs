@@ -46,7 +46,7 @@ class Program
 
         #endregion
 
-        #region 建造者模式
+        #region 建造者模式 (Builder Pattern)
 
         var manualOrderDirector = new OrderDirector(new ManualOrderBuilder());
         var manualOrder = manualOrderDirector.Build();
@@ -55,7 +55,7 @@ class Program
         
         #endregion
 
-        #region 原型模式
+        #region 原型模式 (Prototype Pattern)
 
         var word = new Word("測試", "標題");
         var word2 = word.ShallowCopy();
