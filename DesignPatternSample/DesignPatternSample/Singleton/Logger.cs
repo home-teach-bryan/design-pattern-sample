@@ -2,20 +2,20 @@
 
 namespace DesignPatternSample.Singleton;
 
-public sealed class Singleton
+public sealed class Logger
 {
-    private static Singleton _singleton = new Singleton();
+    private static Logger _logger = new Logger();
 
     private readonly int _id;
 
-    private Singleton()
+    private Logger()
     {
         this._id = Guid.NewGuid().GetHashCode();
     }
 
-    public static Singleton Instance
+    public static Logger Instance
     {
-        get { return _singleton; }
+        get { return _logger; }
     }
 
     public int GetId()
