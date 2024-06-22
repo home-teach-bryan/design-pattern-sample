@@ -1,9 +1,9 @@
-﻿using System.Threading.Channels;
-using DesignPatternSample.AbstractFactory.Product;
-using DesignPatternSample.AbstractFactory.ProductFactory;
-using DesignPatternSample.Builder;
-using DesignPatternSample.Factory.PaymentFactory;
-using DesignPatternSample.Prototype;
+﻿using DesignPatternSample.CreationalPatterns.AbstractFactory.ProductFactory;
+using DesignPatternSample.CreationalPatterns.Builder;
+using DesignPatternSample.CreationalPatterns.Builder.OrderBuilder;
+using DesignPatternSample.CreationalPatterns.FactoryMethod.PaymentFactory;
+using DesignPatternSample.CreationalPatterns.Prototype;
+using DesignPatternSample.CreationalPatterns.Singleton;
 
 namespace DesignPatternSample;
 
@@ -11,11 +11,13 @@ class Program
 {
     static void Main(string[] args)
     {
+        #region 建立型模式
+
         #region 單例模式(Singleton)
 
-        var firstSingleton = Singleton.Logger.Instance;
+        var firstSingleton = Logger.Instance;
         Console.WriteLine(firstSingleton.GetId());
-        var secondSingleton = Singleton.Logger.Instance;
+        var secondSingleton = Logger.Instance;
         Console.WriteLine(secondSingleton.GetId());
 
         #endregion
@@ -63,7 +65,11 @@ class Program
         Console.WriteLine($"Word_Name:{word.Name}");
         Console.WriteLine($"Word2_Name:{word2.Name}");
         #endregion
-        
+
+        #endregion
+
+
+
         Console.Read();
     }
 }
