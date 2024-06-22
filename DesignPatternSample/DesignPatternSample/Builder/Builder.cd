@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DesignPatternSample.Builder.ECommerceOrderBuilder" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQACAAAABEAAAAAAABAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Builder\OrderBuilder\ECommerceOrderBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DesignPatternSample.Builder.ManualOrderBuilder" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="3.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQACAAAABEAAAAAAABAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Builder\OrderBuilder\ManualOrderBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DesignPatternSample.Builder.Order" Collapsed="true">
+    <Position X="2" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAEgAAIAAA=</HashCode>
+      <FileName>Builder\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignPatternSample.Builder.OrderDirector" Collapsed="true">
+    <Position X="4" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builder\OrderDirector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="DesignPatternSample.Builder.IOrderBuilder" Collapsed="true">
+    <Position X="4.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAABEAAAAAAABAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Builder\OrderBuilder\IOrderBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
