@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DesignPatternSample.BehavioralPatterns.Memento.GamePlayer" Collapsed="true">
+    <Position X="4.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAgAAAAAAAAAAAgAAABAAAAAACAAAA=</HashCode>
+      <FileName>BehavioralPatterns\Memento\GamePlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignPatternSample.BehavioralPatterns.Memento.PlayerMemento" Collapsed="true">
+    <Position X="6" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>BehavioralPatterns\Memento\PlayerMemento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignPatternSample.BehavioralPatterns.Memento.PlayerStateCaretaker" Collapsed="true">
+    <Position X="4.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BehavioralPatterns\Memento\PlayerStateCaretaker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

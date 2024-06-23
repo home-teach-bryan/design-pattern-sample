@@ -1,4 +1,14 @@
-﻿using DesignPatternSample.CreationalPatterns.AbstractFactory.ProductFactory;
+﻿using DesignPatternSample.BehavioralPatterns.ChainOfResponsiblity;
+using DesignPatternSample.BehavioralPatterns.Command;
+using DesignPatternSample.BehavioralPatterns.Iterator;
+using DesignPatternSample.BehavioralPatterns.Mediator;
+using DesignPatternSample.BehavioralPatterns.Memento;
+using DesignPatternSample.BehavioralPatterns.Observer;
+using DesignPatternSample.BehavioralPatterns.State;
+using DesignPatternSample.BehavioralPatterns.Strategy;
+using DesignPatternSample.BehavioralPatterns.TemplateMethod;
+using DesignPatternSample.BehavioralPatterns.Visitor;
+using DesignPatternSample.CreationalPatterns.AbstractFactory.ProductFactory;
 using DesignPatternSample.CreationalPatterns.Builder;
 using DesignPatternSample.CreationalPatterns.Builder.OrderBuilder;
 using DesignPatternSample.CreationalPatterns.FactoryMethod.PaymentFactory;
@@ -12,6 +22,7 @@ using DesignPatternSample.StructuralPatterns.Decorator.MessageDecorator;
 using DesignPatternSample.StructuralPatterns.Facade;
 using DesignPatternSample.StructuralPatterns.Flyweight;
 using DesignPatternSample.StructuralPatterns.Proxy;
+using Order = DesignPatternSample.BehavioralPatterns.Iterator.Order;
 
 namespace DesignPatternSample;
 
@@ -179,8 +190,155 @@ class Program
         #endregion
         
         #endregion
+
+        #region 行為型模式
+
+        #region 策略模式 (Strategy Pattern)
+
+        var noDiscount = new NoDiscountStrategy();
+        var shoppingCart = new ShoppingCart();
+        shoppingCart.SetDiscountStrategy(noDiscount);
+        Console.WriteLine($"NoDiscount Price:{shoppingCart.GetCalculatePrice(100m)}");
+
+        var seasonDiscount = new SeasonDiscountStrategy();
+        shoppingCart.SetDiscountStrategy(seasonDiscount);
+        Console.WriteLine($"SeasonDiscount Price:{shoppingCart.GetCalculatePrice(100m)}");
+
+        var clearanceDiscount = new ClearanceDiscountStrategy();
+        shoppingCart.SetDiscountStrategy(clearanceDiscount);
+        Console.WriteLine($"ClearanceDiscount Price:{shoppingCart.GetCalculatePrice(100m)}");
         
+        #endregion
+
+        #region 模板方法(Template Method Pattern)
+
+        DataProcessor csvProcessor = new CsvProcessor();
+        csvProcessor.ProcessData();
         
+        DataProcessor jsonProcessor = new JsonProcessor();
+        jsonProcessor.ProcessData();
+        
+        DataProcessor xmlProcessor = new XmlProcessor();
+        xmlProcessor.ProcessData();
+        
+        #endregion
+
+        #region 命令模式(Command Pattern)
+
+        TextEditor editor = new TextEditor();
+        CommandInvoker invoker = new CommandInvoker();
+
+        ICommand addText1 = new AddTextCommand(editor, "Hello, ");
+        ICommand removeText1 = new RemoveTextCommand(editor, 2);
+        invoker.ExecuteCommand(addText1);
+        invoker.ExecuteCommand(removeText1);
+        
+        invoker.UndoCommand();
+        invoker.UndoCommand();
+
+        #endregion
+
+        #region 迭代器模式(Iterator Pattern)
+
+        Order[] orders = new Order[]
+        {
+            new Order { ID = "1", Name = "Test1" },
+            new Order { ID = "2", Name = "Test2" }
+        };
+        var orderList = new OrderList(orders);
+
+        foreach (var order in orderList)
+        {
+            Console.WriteLine($"Order:{order.ID}, {order.Name}");
+        }
+        #endregion
+        
+        #region 中介者模式(Mediator Pattern) 
+        
+        IAirTrafficMediator airTrafficMediator = new AirTrafficControl();
+        Aircraft boeing747 = new Boeing(airTrafficMediator, "Boeing 747");
+        boeing747.RequestTakeoff();
+        boeing747.RequestLanding();
+
+        Aircraft airBus = new Airbus(airTrafficMediator, "AirBus");
+        airBus.RequestTakeoff();
+        airBus.RequestLanding();
+        
+        #endregion
+
+        #region 備忘錄模式(Memento Pattern)
+
+        var gamePlayer = new GamePlayer(1, 100);
+        gamePlayer.StateDisplay();
+        var memento = gamePlayer.CreateMemento();
+        var careTaker = new PlayerStateCaretaker
+        {
+            Memento = memento
+        };
+        gamePlayer.Die();
+        gamePlayer.StateDisplay();
+        gamePlayer.RecoveryMemento(careTaker.Memento);
+        gamePlayer.StateDisplay();
+        
+        #endregion
+
+        #region 觀察者模式(Observer Pattern)
+
+        IObserver observer1 = new Subscriber("Test1");
+        IObserver observer2 = new Subscriber("Test2");
+        IObserver observer3 = new Subscriber("Test3");
+        
+        ISubject newPublisher = new NewsPublisher();
+        newPublisher.Attach(observer1);
+        newPublisher.Attach(observer2);
+        newPublisher.Attach(observer3);
+        newPublisher.Notify("First News");
+        
+        newPublisher.Detach(observer1);
+        newPublisher.Notify("Second News");
+        
+        #endregion
+        
+        #region 狀態模式(State Pattern)
+
+        var elevator = new Elevator();
+        IState openState = new OpenState();
+        IState closeState = new CloseState();
+        IState runState = new RunState();
+        elevator.Run();
+        elevator.ChangeState(openState);
+        elevator.Open();
+        elevator.ChangeState(closeState);
+        elevator.Close();
+        elevator.ChangeState(runState);
+        elevator.Run();
+        
+        #endregion
+
+        #region 責任鏈模式(ChainOfResponsiblity)
+
+        Leader teamLeader = new TeamLeader("部門主管");
+        Leader director = new Director("部門經理");
+        Leader generalManager = new GeneralManager("總經理");
+        
+        teamLeader.SetNext(director);
+        director.SetNext(generalManager);
+        teamLeader.HandleRequest(5);
+        
+        #endregion
+
+        #region 訪問者模式(Visitor Pattern)
+
+        Payroll payroll = new Payroll();
+        payroll.Attach(new FullTimeEmployee("Alice", 5000));
+        payroll.Attach(new PartTimeEmployee("Bob", 20, 100));
+
+        IVisitor salaryCalculator = new SalaryCalculator();
+        payroll.Accept(salaryCalculator);
+
+        #endregion
+        
+        #endregion
         
         Console.Read();
     }

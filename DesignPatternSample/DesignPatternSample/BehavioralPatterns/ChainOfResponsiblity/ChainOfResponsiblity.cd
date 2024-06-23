@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DesignPatternSample.BehavioralPatterns.ChainOfResponsiblity.Leader" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAABAAAAAAAgAAAAgIAIgAAAAAAAAAAA=</HashCode>
+      <FileName>BehavioralPatterns\ChainOfResponsiblity\Leader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignPatternSample.BehavioralPatterns.ChainOfResponsiblity.TeamLeader" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BehavioralPatterns\ChainOfResponsiblity\TeamLeader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DesignPatternSample.BehavioralPatterns.ChainOfResponsiblity.GeneralManager" Collapsed="true">
+    <Position X="2.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BehavioralPatterns\ChainOfResponsiblity\GeneralManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
